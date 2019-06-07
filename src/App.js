@@ -3,7 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import {Button, Paper, Grid, TextField} from '@material-ui/core';
 import Signature from './signatures/blancmarine';
 import { saveAs } from 'file-saver';
-import copy from 'copy-to-clipboard';
 import './App.css';
 
 class App extends React.Component {
@@ -63,7 +62,6 @@ class App extends React.Component {
               </Grid>
               <Grid item xs={12}>
                 <Button variant="contained" color="primary" onClick={() => saveAs(new Blob([signatureHtml], {type: "text/html;charset=utf-8"}), 'signature.html')}>Enregistrer</Button>
-                <Button variant="contained" color="secondary" onClick={() => copy(signatureHtml)}>Copier dans le presse-papier</Button>
               </Grid>
             </Grid>
           </Paper>

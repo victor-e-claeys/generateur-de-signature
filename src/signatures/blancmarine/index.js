@@ -10,15 +10,17 @@ const colors = {
 }
 
 const styles = {
-  signature:{
+  container: {
     borderTop: "dotted #ccc 1px",
+    textAlign: 'left'
+  },
+  signature:{
     color: colors.black,
     fontFamily: "'Times New Roman', Times, serif",
-    letterSpacing: .5,
-    textAlign: 'left',
-    width: 500
+    letterSpacing: .5
   },
   logo:{
+    paddingRight: 30,
     textAlign: 'center',
     verticalAlign:'top'
   },
@@ -29,8 +31,7 @@ const styles = {
   name: {
     fontSize: "12pt",
     fontWeight: 'bold',
-    marginBottom: 4,
-    paddingTop: 4,
+    marginBottom: 4
   },
   title: {
     marginBottom: 12
@@ -59,7 +60,8 @@ const styles = {
     marginBottom: 8
   },
   social: {
-    borderTop: 'solid .5px #000000'
+    borderTop: 'solid .5px #000000',
+    paddingTop: 4
   }
 }
 
@@ -86,29 +88,29 @@ class Signature extends React.Component {
     const {address, addressLink, formatTelephone, formatUrl, url} = this;
     const {email, name, title, telephone} = this.props;
     return(
-      <table className="signature" style={styles.signature}>
+      <table className="signature" style={{...styles.signature, ...styles.container}}>
         <tr>
           <td style={styles.logo}>
             <img src={logo} />
           </td>
           <td style={styles.inner}>
-            <div style={styles.name}>{name}</div>
-            <div style={styles.title}>{title}</div>
-            <div  style={styles.telephone}>
+            <div style={{...styles.signature, ...styles.name}}>{name}</div>
+            <div style={{...styles.signature, ...styles.title}}>{title}</div>
+            <div style={{...styles.signature, ...styles.telephone}}>
               <span style={styles.prefix}>T</span>
               <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + telephone}>{formatTelephone(telephone)}</a>
             </div>
-            <div style={styles.email}>
-              <span style={styles.prefix}>C</span>
+            <div style={{...styles.signature, ...styles.email}}>
+              <span style={styles.prefix}>E</span>
               <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{email}</a>
             </div>
-            <div style={styles.url}>
+            <div style={{...styles.signature, ...styles.url}}>
               <a style={{...styles.link, ...styles.urlLink}} href={url} target="_blank">{formatUrl(url)}</a>
             </div>
-            <div style={styles.address}>
+            <div style={{...styles.signature, ...styles.address}}>
               <a style={{...styles.link, ...styles.addressLink}} href={addressLink(address)} target="_blank">{address}</a>
             </div>
-            <div style={styles.social}>
+            <div style={{...styles.signature, ...styles.social}}>
               <a style={styles.link} href="https://www.instagram.com/blancmarineliving/" target="_blank"><img src={instagramIcon} /></a>
               <a style={styles.link} href="https://www.facebook.com/blancmarineliving/" target="_blank"><img src={facebookIcon} /></a>
               <a style={styles.link} href="https://www.pinterest.fr/melaniecherrier/" target="_blank"><img src={pinterestIcon} /></a>
