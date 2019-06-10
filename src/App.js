@@ -79,7 +79,7 @@ class App extends React.Component {
               </Grid>
               <Grid item xs={12}>
                 <Button variant="contained" color="primary" onClick={() => saveAs(new Blob([signatureHtml], {type: "text/html;charset=utf-8"}), 'signature.html')}>Enregistrer</Button>
-                <Button variant="contained" color="secondary" onClick={this.copySignature}>Copier</Button>
+                <Button style={{marginLeft: 10}} variant="contained" color="secondary" onClick={this.copySignature}>Copier</Button>
               </Grid>
             </Grid>
           </Paper>
