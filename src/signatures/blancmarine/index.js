@@ -60,7 +60,7 @@ const styles = {
     marginBottom: 8
   },
   social: {
-    borderTop: 'solid .5px #000000',
+    borderTop: '1px solid rgba(0, 0, 0, 0.42)',
     paddingTop: 4
   }
 }
