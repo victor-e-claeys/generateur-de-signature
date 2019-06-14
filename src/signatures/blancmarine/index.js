@@ -65,11 +65,18 @@ const styles = {
   }
 }
 
-class Signature extends React.Component {
+class BlancMarine extends React.Component {
   constructor(props){
     super(props);
     this.url = 'https://www.blancmarine.ca';
     this.address = '1780, boul. St-Joseph, Montréal (Lachine), H8S 2N2';
+  }
+
+  componentWillMount(){
+    const {setEditableFields} = this.props;
+    if(setEditableFields){
+      setEditableFields(['name', 'title', 'email', 'telephone'])
+    }
   }
 
   addressLink = address => {
@@ -122,4 +129,4 @@ class Signature extends React.Component {
   }
 }
   
-export default Signature;
+export default BlancMarine;
