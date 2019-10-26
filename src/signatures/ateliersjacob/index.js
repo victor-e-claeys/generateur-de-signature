@@ -1,0 +1,213 @@
+import React from 'react';
+import border from './assets/border.png';
+import logoAJ from './assets/ateliersjacob.png';
+import logoAM from './assets/logo-airmiles.jpg';
+import logoT from './assets/tendances.png';
+import facebookIcon from './assets/facebook.png';
+import instagramIcon from './assets/instagram.png';
+
+const colors = {
+  primary: '#c37415',
+  black: '#000000'
+}
+
+const Table = ({children, ...props}) => 
+  <table cellpadding="0" cellspacing="0" border="0" {...props}>{children}</table>
+
+const styles = {
+  container: {
+    borderTop: "dotted #ccc 1px",
+    textAlign: 'left',
+    paddingTop: 10
+  },
+  signature:{
+    color: colors.black,
+    fontFamily: "Calibri, sans-serif"
+  },
+  logo:{
+    textAlign: 'center',
+    verticalAlign:'bottom'
+  },
+  inner: {
+    fontSize: "9pt",
+    fontWeight: 'normal',
+  },
+  name: {
+    color:'#231F20',
+    fontFamily: "Georgia, serif",
+    fontSize: 16,
+    textAlign: 'left'
+  },
+  title: {
+    color: '#636466',
+    fontFamily: "Georgia, serif",
+    fontStyle: 'italic',
+    fontSize: 14,
+    lineHeight:1.2
+  },
+  prefix:{
+    color: colors.primary,
+    display: 'inline-block',
+    fontWeight: 'bold',
+    marginRight: 12
+  },
+  link: {
+    color: colors.black,
+    textDecoration: 'none'
+  },
+  telephone: {
+    
+  },
+  url: {
+    margin: '12px 0 8px'
+  },
+  urlLink: {
+    color: colors.primary,
+    fontWeight: 'bold',
+    fontSize: '10pt'
+  },
+  address: {
+    whiteSpace: 'pre',
+    paddingRight: 16
+  },
+  social: {
+    borderBottom: '1px solid #949494',
+    paddingTop: 4,
+    paddingBottom: 4,
+  },
+  contact: {
+    color: '#231F20',
+    textAlign:'right',
+    fontSize: 14
+  },
+  slogan:{
+    color: '#636466',
+    fontSize:12,
+    paddingBottom: 8,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    verticalAlign: 'bottom'
+  },
+  footer: {
+    backgroundColor:'#636466',
+    color:'white',
+    fontSize:12,
+    paddingTop:6,
+    paddingBottom:6,
+    textAlign:'center'
+  }
+}
+
+class AteliersJacob extends React.Component {
+  constructor(props){
+    super(props);
+    this.table = {
+      width: 445,
+      innerWidth: 435
+    }
+  }
+
+  componentWillMount(){
+    const {setEditableFields} = this.props;
+    if(setEditableFields){
+      setEditableFields(['name', 'title', 'email', 'telephone', 'mobile'])
+    }
+  }
+
+  formatTelephone = number => {
+    return number.substr(0, 3) + ' ' + number.substr(3, 3) + '-' + number.substr(6, 4);
+  }
+
+  render(){
+    const {formatTelephone, table} = this;
+    const {email, name, title, telephone, mobile} = this.props;
+    const phoneNumber = mobile ? mobile : telephone;
+    return(
+      <Table className="signature" width={table.width} style={{...styles.signature, ...styles.container}}>
+        <tr>
+          <td align="center">
+            <Table width={table.innerWidth}>
+              <tr>
+                <td style={{...styles.signature, ...styles.name}}>
+                  {name}
+                </td>
+              </tr>
+            </Table>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <Table width={table.innerWidth}>
+              <tr>
+                <td style={{verticalAlign:'top'}} width="50%">
+                  <div style={{...styles.signature, ...styles.title}}>{title}</div>
+                </td>
+                <td style={styles.contact} width="50%">
+                  <div style={{...styles.signature, ...styles.email}}>
+                    <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{email}</a>
+                  </div>
+                  <div style={{...styles.signature, ...styles.telephone}}>
+                    {mobile ? 'Cellulaire' : 'Bureau'} : <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + phoneNumber}>{formatTelephone(phoneNumber)}</a>
+                  </div>
+                </td>
+              </tr>
+            </Table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Table width={table.innerWidth}>
+              <tr>
+                <td width="50%" style={styles.logo}>
+                  <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} /></a><br/><br/><br/>
+                  <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
+                  <a href="https://www.instagram.com/ateliersjacob/" target="_blank"><img src={instagramIcon} /></a>
+                </td>
+                <td>
+                  <img src={border} verticalAlign="middle" />
+                </td>
+                <td width="50%" style={styles.logo}>
+                  <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/><br/>
+                  <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
+                  <a href="https://www.instagram.com/tendances.concept/" target="_blank"><img src={instagramIcon} /></a>
+                </td>
+              </tr>
+            </Table>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <Table width={table.innerWidth}>
+              <tr>
+                <td width={60}>
+                  <img src={logoAM} />
+                </td>
+                <td style={styles.slogan}>
+                  Fabricant de bonheur 24 | 7 | 365
+                </td>
+                <td width={60}>
+                </td>
+              </tr>
+            </Table>
+          </td>
+        </tr>
+        <tr>
+          <td style={styles.footer}>
+            Montréal&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            Longueuil&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            Saint-Calixte&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            Saint-Jérôme&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            Calgary
+          </td>
+        </tr>
+      </Table>
+    );
+  }
+}
+  
+export default AteliersJacob;
