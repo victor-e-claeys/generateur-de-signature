@@ -3,6 +3,7 @@ import logo from './assets/photo_profil.png';
 import facebookIcon from './assets/fb.png';
 import instagramIcon from './assets/insta.png';
 import pinterestIcon from './assets/linkedin.png';
+import twitterIcon from './assets/twitter.png';
 
 const colors = {
   primary: '#c37415',
@@ -75,14 +76,14 @@ const styles = {
 class CapsuleCreative extends React.Component {
   constructor(props){
     super(props);
-    this.url = 'https://www.lacapsulecreative.com';
+    this.url = 'https://lacapsulecreative.com';
     this.address = '100 Rue Gaston-Dumoulin,\nsuite 102, Blainville, QC J7C 0A3';
   }
 
   componentWillMount(){
     const {setEditableFields} = this.props;
     if(setEditableFields){
-      setEditableFields(['name', 'title', 'email', 'telephone'])
+      setEditableFields(['name', 'title', 'telephone'])
     }
   }
 
@@ -100,7 +101,7 @@ class CapsuleCreative extends React.Component {
 
   render(){
     const {address, addressLink, formatTelephone, formatUrl, url} = this;
-    const {email, name, title, telephone} = this.props;
+    const {name, title, telephone} = this.props;
     return(
       <table className="signature" style={{...styles.signature, ...styles.container}}>
         <tr>
@@ -111,9 +112,10 @@ class CapsuleCreative extends React.Component {
             <div style={{...styles.signature, ...styles.name}}>{name}</div>
             <div style={{...styles.signature, ...styles.title}}>{title}</div>
             <div style={{...styles.signature, ...styles.social}}>
-              <a style={styles.link} href="https://www.instagram.com/lacapsulecreative/" target="_blank"><img src={instagramIcon} /></a>
-              <a style={styles.link} href="https://www.facebook.com/lacapsulecreative/" target="_blank"><img src={facebookIcon} /></a>
-              <a style={styles.link} href="https://www.linkedin.com/company/lacapsulecreative/" target="_blank"><img src={pinterestIcon} /></a>
+              <a style={styles.link} href="https://www.instagram.com/lacapsulecreative/" target="_blank"><img width="20" src={instagramIcon} /></a>&nbsp;&nbsp;
+              <a style={styles.link} href="https://www.facebook.com/lacapsulecreative/" target="_blank"><img width="20" src={facebookIcon} /></a>&nbsp;&nbsp;
+              <a style={styles.link} href="https://www.linkedin.com/company/lacapsulecreative/" target="_blank"><img width="20" src={pinterestIcon} /></a>&nbsp;&nbsp;
+              <a style={styles.link} href="https://twitter.com/lacapsulecrea" target="_blank"><img width="20" src={twitterIcon} /></a>&nbsp;&nbsp;
             </div>
             <div style={{...styles.signature, ...styles.url}}>
               <a style={{...styles.link, ...styles.urlLink}} href={url} target="_blank">{formatUrl(url)}</a>
@@ -129,8 +131,8 @@ class CapsuleCreative extends React.Component {
                   <div style={{...styles.signature, ...styles.telephone}}>
                     <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + telephone}>{formatTelephone(telephone)}</a>
                   </div>
-                  <div style={{...styles.signature, ...styles.email}}>
-                    <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{email}</a>
+                  <div style={{...styles.signature, ...styles.telephone}}>
+                    <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:+18778206258'}>(877) 820-6258</a>
                   </div>
                 </td>
               </tr>

@@ -1,10 +1,19 @@
 import React from 'react';
+/*
 import border from './assets/border.png';
 import logoAJ from './assets/ateliersjacob.png';
 import logoAM from './assets/logo-airmiles.jpg';
 import logoT from './assets/tendances.png';
 import facebookIcon from './assets/facebook.png';
 import instagramIcon from './assets/instagram.png';
+*/
+
+const border = process.env.PUBLIC_URL + '/ateliersjacob/assets/border.png';
+const logoAJ = process.env.PUBLIC_URL +  '/ateliersjacob/assets/ateliersjacob.png';
+const logoAM = process.env.PUBLIC_URL +  '/ateliersjacob/assets/logo-airmiles.jpg';
+const logoT = process.env.PUBLIC_URL +  '/ateliersjacob/assets/tendances.png';
+const facebookIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/facebook.png';
+const instagramIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/instagram.png';
 
 const colors = {
   primary: '#c37415',
@@ -163,15 +172,15 @@ class AteliersJacob extends React.Component {
           <td>
             <Table width={table.innerWidth}>
               <tr>
-                <td width="50%" style={styles.logo}>
+                <td width="49%" style={styles.logo}>
                   <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} /></a><br/><br/><br/>
                   <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
                   <a href="https://www.instagram.com/ateliersjacob/" target="_blank"><img src={instagramIcon} /></a>
                 </td>
-                <td>
-                  <img src={border} verticalAlign="middle" />
+                <td width="2%" align="center">
+                  <img src={border} />
                 </td>
-                <td width="50%" style={styles.logo}>
+                <td width="49%" style={styles.logo}>
                   <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/><br/>
                   <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
                   <a href="https://www.instagram.com/tendances.concept/" target="_blank"><img src={instagramIcon} /></a>
