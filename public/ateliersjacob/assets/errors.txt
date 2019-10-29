@@ -1,0 +1,5 @@
+[2019-10-16 15:09:27] layer "facebook.svg, facebook.png": Duplicate path: facebook.svg
+[2019-10-16 15:09:27] layer "facebook.svg, facebook.png": Duplicate path: facebook.png
+[2019-10-16 15:09:27] layer "instagram.svg, instagram.png": Duplicate path: instagram.svg
+[2019-10-16 15:09:27] layer "instagram.svg, instagram.png": Duplicate path: instagram.png
+[2019-10-16 15:09:27] layer "larchambault@ateliersjacob.com Cellulaire : 438 405-6651": Expected end of input but "C" found.
