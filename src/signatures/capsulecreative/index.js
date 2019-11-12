@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './assets/photo_profil.png';
-import facebookIcon from './assets/fb.png';
-import instagramIcon from './assets/insta.png';
-import pinterestIcon from './assets/linkedin.png';
-import twitterIcon from './assets/twitter.png';
+
+const logo = process.env.PUBLIC_URL + '/capsulecreative/assets/photo_profil.png';
+const facebookIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/fb.png';
+const instagramIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/insta.png';
+const linkedinIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/linkedin.png';
+const twitterIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/twitter.png';
 
 const colors = {
   primary: '#c37415',
@@ -114,7 +115,7 @@ class CapsuleCreative extends React.Component {
             <div style={{...styles.signature, ...styles.social}}>
               <a style={styles.link} href="https://www.instagram.com/lacapsulecreative/" target="_blank"><img width="20" src={instagramIcon} /></a>&nbsp;&nbsp;
               <a style={styles.link} href="https://www.facebook.com/lacapsulecreative/" target="_blank"><img width="20" src={facebookIcon} /></a>&nbsp;&nbsp;
-              <a style={styles.link} href="https://www.linkedin.com/company/lacapsulecreative/" target="_blank"><img width="20" src={pinterestIcon} /></a>&nbsp;&nbsp;
+              <a style={styles.link} href="https://www.linkedin.com/company/lacapsulecreative/" target="_blank"><img width="20" src={linkedinIcon} /></a>&nbsp;&nbsp;
               <a style={styles.link} href="https://twitter.com/lacapsulecrea" target="_blank"><img width="20" src={twitterIcon} /></a>&nbsp;&nbsp;
             </div>
             <div style={{...styles.signature, ...styles.url}}>

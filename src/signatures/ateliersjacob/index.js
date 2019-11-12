@@ -104,6 +104,10 @@ const styles = {
     paddingTop:6,
     paddingBottom:6,
     textAlign:'center'
+  },
+  email: {
+    paddingLeft: 10,
+    whiteSpace: 'nowrap'
   }
 }
 
@@ -111,8 +115,8 @@ class AteliersJacob extends React.Component {
   constructor(props){
     super(props);
     this.table = {
-      width: 445,
-      innerWidth: 435
+      width: 500,
+      innerWidth: 490
     }
   }
 
@@ -148,10 +152,10 @@ class AteliersJacob extends React.Component {
           <td align="center">
             <Table width={table.innerWidth}>
               <tr>
-                <td style={{verticalAlign:'top'}} width="50%">
+                <td style={{verticalAlign:'top'}}>
                   <div style={{...styles.signature, ...styles.title}}>{title}</div>
                 </td>
-                <td style={styles.contact} width="50%">
+                <td style={styles.contact}>
                   <div style={{...styles.signature, ...styles.email}}>
                     <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{email}</a>
                   </div>
@@ -173,7 +177,7 @@ class AteliersJacob extends React.Component {
             <Table width={table.innerWidth}>
               <tr>
                 <td width="49%" style={styles.logo}>
-                  <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} /></a><br/><br/><br/>
+                  <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} /></a><br/><br/>
                   <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
                   <a href="https://www.instagram.com/ateliersjacob/" target="_blank"><img src={instagramIcon} /></a>
                 </td>
@@ -181,7 +185,7 @@ class AteliersJacob extends React.Component {
                   <img src={border} />
                 </td>
                 <td width="49%" style={styles.logo}>
-                  <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/><br/>
+                  <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/>
                   <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
                   <a href="https://www.instagram.com/tendances.concept/" target="_blank"><img src={instagramIcon} /></a>
                 </td>
