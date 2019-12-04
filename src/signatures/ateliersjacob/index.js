@@ -1,4 +1,6 @@
 import React from 'react';
+const queryString = require('query-string');
+
 /*
 import border from './assets/border.png';
 import logoAJ from './assets/ateliersjacob.png';
@@ -14,6 +16,7 @@ const logoAM = process.env.PUBLIC_URL +  '/ateliersjacob/assets/logo-airmiles.jp
 const logoT = process.env.PUBLIC_URL +  '/ateliersjacob/assets/tendances.png';
 const facebookIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/facebook.png';
 const instagramIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/instagram.png';
+const noel = process.env.PUBLIC_URL +  '/ateliersjacob/assets/noel.png';
 
 const colors = {
   primary: '#c37415',
@@ -118,22 +121,19 @@ class AteliersJacob extends React.Component {
       width: 500,
       innerWidth: 490
     }
+    this.qs = queryString.parse(window.location.search);
   }
 
   componentWillMount(){
     const {setEditableFields} = this.props;
     if(setEditableFields){
-      setEditableFields(['name', 'title', 'email', 'telephone', 'mobile'])
+      setEditableFields(['name', 'title', 'email', 'telephone', 'extension', 'mobile'])
     }
-  }
-
-  formatTelephone = number => {
-    return number.substr(0, 3) + ' ' + number.substr(3, 3) + '-' + number.substr(6, 4);
   }
 
   render(){
     const {formatTelephone, table} = this;
-    const {email, name, title, telephone, mobile} = this.props;
+    const {email, name, title, telephone, extension, mobile} = this.props;
     const phoneNumber = mobile ? mobile : telephone;
     return(
       <Table className="signature" width={table.width} style={{...styles.signature, ...styles.container}}>
@@ -160,7 +160,7 @@ class AteliersJacob extends React.Component {
                     <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{email}</a>
                   </div>
                   <div style={{...styles.signature, ...styles.telephone}}>
-                    {mobile ? 'Cellulaire' : 'Bureau'} : <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + phoneNumber}>{formatTelephone(phoneNumber)}</a>
+                    {mobile ? 'Cellulaire' : 'Bureau'} : <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + phoneNumber.match(/\d+/g).join('')}>{phoneNumber + (extension && !mobile ? ' #' + extension : '')}</a>
                   </div>
                 </td>
               </tr>
@@ -194,7 +194,7 @@ class AteliersJacob extends React.Component {
           </td>
         </tr>
         <tr>
-          <td align="center">
+          <td align="center" style={{paddingBottom:5}}>
             <Table width={table.innerWidth}>
               <tr>
                 <td width={60}>
@@ -218,6 +218,17 @@ class AteliersJacob extends React.Component {
             Calgary
           </td>
         </tr>
+        {
+          this.qs.noel ?
+          <tr>
+            <td align="center" style={{paddingTop:10}}>
+              <img alt="Joyeuses fêtes à notre merveilleuse clientèle" src={noel} /><br />
+              Veuillez prendre note que nous serons fermés<br />
+              du 21 décembre au 5 janvier inclusivement.
+            </td>
+          </tr> :
+          null
+        }
       </Table>
     );
   }

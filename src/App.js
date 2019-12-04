@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state = {
       email: 'exemple@email.com',
       name: 'Votre nom',
-      telephone: '1234567890',
+      telephone: '450 777-7777',
+      extension: '',
       title: 'Votre titre',
       message: null,
       editableFields: []
@@ -42,6 +43,14 @@ class App extends React.Component {
             fullWidth
             label="Téléphone"
             onChange={setValue('telephone')}
+          />
+        </Grid>,
+      extension:
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Extension"
+            onChange={setValue('extension')}
           />
         </Grid>,
       mobile:
