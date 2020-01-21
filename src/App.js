@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import {Button, Paper, Grid, Snackbar, TextField} from '@material-ui/core';
+import {Button, ButtonGroup, Paper, Grid, Menu, MenuList, MenuItem, Snackbar, TextField} from '@material-ui/core';
 import * as Signatures from './signatures';
 import { saveAs } from 'file-saver';
+import copy from 'copy-to-clipboard';
+import html2canvas from 'html2canvas';
+import download from 'downloadjs';
 import './App.css';
 
 class App extends React.Component {
@@ -35,6 +38,22 @@ class App extends React.Component {
             fullWidth
             label="Titre"
             onChange={setValue('title')}
+          />
+        </Grid>,
+      title2:
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Titre"
+            onChange={setValue('title2')}
+          />
+        </Grid>,
+      title3:
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Titre"
+            onChange={setValue('title3')}
           />
         </Grid>,
       telephone:
@@ -89,6 +108,15 @@ class App extends React.Component {
       this.setState({message: 'Cette fonctionnalitée est indisponible dans votre navigateur web.'});
     }
   }
+  copyHTML = html => {
+    copy(html);
+    this.setState({message: 'La signature a été copiée dans le presse-papier.'});
+  }
+  copyImage = () => {
+    html2canvas(document.querySelector("#signature").childNodes[0]).then(function(canvas) {
+      download(canvas.toDataURL("image/jpg"), 'signature.jpg', "image/jpg");
+  });
+  }
   setValue = key => ({target: {value}}) => {
     this.setState({
       [key]: value
@@ -121,10 +149,34 @@ class App extends React.Component {
                 }
               })}
               <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={() => saveAs(new Blob([signatureHtml], {type: "text/html;charset=utf-8"}), 'signature.html')}>Enregistrer</Button>
-                <Button style={{marginLeft: 10}} variant="contained" color="secondary" onClick={this.copySignature}>Copier</Button>
+                <ButtonGroup style={{marginRight: 10, marginTop: 10}} variant="contained" color="primary">
+                  <Button color="primary" onClick={() => saveAs(new Blob([signatureHtml], {type: "text/html;charset=utf-8"}), 'signature.html')}>
+                    Télécharger HTML
+                  </Button>
+                  <Button onClick={this.copyImage}>
+                    Télécharger JPG
+                  </Button>
+                </ButtonGroup>
+                <ButtonGroup style={{marginTop: 10}} variant="contained" color="secondary">
+                  <Button onClick={this.copySignature}>
+                    Copier Texte
+                  </Button>
+                  <Button  onClick={() => {
+                    this.copyHTML(signatureHtml);
+                  }}>
+                    Copier HTML
+                  </Button>
+                </ButtonGroup>
               </Grid>
             </Grid>
+          </Paper>
+          <Paper style={{padding:10, marginTop: 20}}>
+            <h3>Procédures</h3>
+            <MenuList>
+              <MenuItem onClick={() => { window.open('https://translate.google.com/translate?hl=en&sl=auto&tl=fr&u=https%3A%2F%2Fblog.gimm.io%2Fadd-email-signature-outlook-app-ios%2F') }}>
+                Outlook sur iOS (Copier le HTML)
+              </MenuItem>
+            </MenuList>
           </Paper>
         </Grid>
         <Snackbar 

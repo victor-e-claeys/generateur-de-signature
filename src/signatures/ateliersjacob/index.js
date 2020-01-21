@@ -64,8 +64,8 @@ const styles = {
     marginRight: 12
   },
   link: {
+    textDecoration: 'none',
     color: colors.black,
-    textDecoration: 'none'
   },
   telephone: {
     
@@ -126,14 +126,17 @@ class AteliersJacob extends React.Component {
 
   componentWillMount(){
     const {setEditableFields} = this.props;
+    let fields = ['name', 'title', 'email', 'telephone', 'extension', 'mobile'];
+    if(this.qs.v == '2020')
+      fields = fields.concat(['title2', 'title3']);
     if(setEditableFields){
-      setEditableFields(['name', 'title', 'email', 'telephone', 'extension', 'mobile'])
+      setEditableFields(fields);
     }
   }
 
   render(){
     const {formatTelephone, table} = this;
-    const {email, name, title, telephone, extension, mobile} = this.props;
+    const {email, name, title, title2, title3, telephone, extension, mobile} = this.props;
     const phoneNumber = mobile ? mobile : telephone;
     return(
       <Table className="signature" width={table.width} style={{...styles.signature, ...styles.container}}>
@@ -154,13 +157,21 @@ class AteliersJacob extends React.Component {
               <tr>
                 <td style={{verticalAlign:'top'}}>
                   <div style={{...styles.signature, ...styles.title}}>{title}</div>
+                  {
+                    this.qs.v == '2020' ?
+                    <div>
+                      <div style={{...styles.signature, ...styles.title}}>{title2}</div>
+                      <div style={{...styles.signature, ...styles.title}}>{title3}</div>
+                    </div> :
+                    null
+                  }
                 </td>
                 <td style={styles.contact}>
                   <div style={{...styles.signature, ...styles.email}}>
-                    <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{email}</a>
+                    <a style={{...styles.link, ...styles.emailLink}} href={'mailto:' + email}>{this.qs.v == '2020' ? <strong>E. </strong> : null}{email}</a>
                   </div>
                   <div style={{...styles.signature, ...styles.telephone}}>
-                    {mobile ? 'Cellulaire' : 'Bureau'} : <a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + phoneNumber.match(/\d+/g).join('')}>{phoneNumber + (extension && !mobile ? ' #' + extension : '')}</a>
+                    {this.qs.v == '2020' ? <strong>T. </strong> : (mobile ? 'Cellulaire' : 'Bureau')}<a style={{...styles.link, ...styles.telephoneLink}} href={'tel:' + phoneNumber.match(/\d+/g).join('')}>{phoneNumber + (extension && !mobile ? ' #' + extension : '')}</a>
                   </div>
                 </td>
               </tr>
@@ -195,27 +206,42 @@ class AteliersJacob extends React.Component {
         </tr>
         <tr>
           <td align="center" style={{paddingBottom:5}}>
-            <Table width={table.innerWidth}>
-              <tr>
-                <td width={60}>
-                  <img src={logoAM} />
-                </td>
-                <td style={styles.slogan}>
-                  Fabricant de bonheur 24 | 7 | 365
-                </td>
-                <td width={60}>
-                </td>
-              </tr>
-            </Table>
-          </td>
-        </tr>
-        <tr>
-          <td style={styles.footer}>
-            Montréal&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-            Longueuil&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-            Saint-Calixte&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-            Saint-Jérôme&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-            Calgary
+                {
+                  this.qs.v != '2020' ? 
+                  <Table width={table.innerWidth}>
+                    <tr>
+                      <td width={60}>
+                        <img src={logoAM} />
+                      </td>
+                      <td style={styles.slogan}>
+                        Fabricant de bonheur 24 | 7 | 365
+                      </td>
+                      <td width={60}>
+                      </td>
+                    </tr>
+                  </Table> 
+                  :
+                  <Table width={table.innerWidth}>
+                    <tr>
+                      <td width={60}>
+                        <img src={logoAM} />
+                      </td>
+                      <td>
+                        <Table width="100%">
+                          <tr>
+                            <td style={styles.footer}>
+                              Montréal&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                              Longueuil&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                              Saint-Calixte&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                              Saint-Jérôme&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                              Calgary
+                            </td>
+                          </tr>
+                        </Table> 
+                      </td>
+                    </tr>
+                  </Table> 
+                }
           </td>
         </tr>
         {
