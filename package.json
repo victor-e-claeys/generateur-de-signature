@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://victor-e-claeys.github.io/generateur-de-signature",
   "dependencies": {
-    "@material-ui/core": "^4.0.0-rc.0",
+    "@material-ui/core": "^4.11.0",
     "copy-to-clipboard": "^3.2.0",
     "downloadjs": "^1.4.7",
     "file-saver": "^2.0.2",
@@ -14,7 +14,7 @@
     "mjml-react": "^1.0.53",
     "node-sass": "^4.12.0",
     "query-string": "^6.9.0",
-    "react": "^16.8.6",
+    "react": "^16.13.1",
     "react-dom": "^16.8.6",
     "react-inky": "^0.4.0",
     "react-scripts": "3.0.1"
