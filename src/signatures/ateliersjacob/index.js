@@ -11,7 +11,7 @@ import instagramIcon from './assets/instagram.png';
 */
 
 const border = process.env.PUBLIC_URL + '/ateliersjacob/assets/border.png';
-const logoAJ = process.env.PUBLIC_URL +  '/ateliersjacob/assets/ateliersjacob.png';
+const logoAJ = process.env.PUBLIC_URL +  '/ateliersjacob/assets/cuisirama.png';
 const logoAM = process.env.PUBLIC_URL +  '/ateliersjacob/assets/logo-airmiles.jpg';
 const logoT = process.env.PUBLIC_URL +  '/ateliersjacob/assets/tendances.png';
 const facebookIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/facebook.png';
@@ -118,8 +118,8 @@ class AteliersJacob extends React.Component {
   constructor(props){
     super(props);
     this.table = {
-      width: 500,
-      innerWidth: 490
+      width: 600,
+      innerWidth: 590
     }
     this.qs = queryString.parse(window.location.search);
   }
@@ -189,7 +189,7 @@ class AteliersJacob extends React.Component {
               <tr>
                 <td width="49%" style={styles.logo}>
                   <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} /></a><br/><br/>
-                  <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
+                  <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;
                   <a href="https://www.instagram.com/ateliersjacob/" target="_blank"><img src={instagramIcon} /></a>
                 </td>
                 <td width="2%" align="center">
@@ -197,7 +197,7 @@ class AteliersJacob extends React.Component {
                 </td>
                 <td width="49%" style={styles.logo}>
                   <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/>
-                  <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
+                  <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;
                   <a href="https://www.instagram.com/tendances.concept/" target="_blank"><img src={instagramIcon} /></a>
                 </td>
               </tr>
@@ -230,11 +230,7 @@ class AteliersJacob extends React.Component {
                         <Table width="100%">
                           <tr>
                             <td style={styles.footer}>
-                              Montréal&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Longueuil&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Saint-Calixte&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Saint-Jérôme&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Calgary
+                              Montréal&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Longueuil&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Saint-Calixte&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Saint-Jérôme&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;L'Assomption&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Calgary
                             </td>
                           </tr>
                         </Table> 
