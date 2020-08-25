@@ -188,7 +188,7 @@ class AteliersJacob extends React.Component {
             <Table width={table.innerWidth}>
               <tr>
                 <td width="49%" style={styles.logo}>
-                  <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} width={100} /></a></td>
+                  <a href="http://www.cuisirama.qc.ca/fr/" target="_blank"><img src={logoAJ} width={100} /></a></td>
                 <td width="2%" align="center">
                   <img src={border} />
                 </td>
