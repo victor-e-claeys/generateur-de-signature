@@ -11,7 +11,6 @@ const colors = {
 
 const styles = {
   container: {
-    borderTop: "dotted #ccc 1px",
     textAlign: 'left',
     padding: "20px 25px"
   },
@@ -83,7 +82,7 @@ class GroupeE5 extends React.Component {
   numbersOnly = string => string.match(/\d+/g).join('')
 
   render(){
-    const {address, addressLink, formatTelephone, formatUrl, url} = this;
+    const {formatTelephone, numbersOnly} = this;
     const {name, title, telephone, email, mobile} = this.props;
     return(
       <table className="signature" style={{...styles.signature, ...styles.container}}>
@@ -94,10 +93,10 @@ class GroupeE5 extends React.Component {
           <td style={styles.inner}>
             <div style={{...styles.signature, ...styles.name}}>{name.toUpperCase()}</div>
             <div style={{...styles.signature, ...styles.title}}>{title}</div>
-            <div style={{...styles.signature, ...styles.contact}}><a style={styles.link} href={'tel:+1' + this.numbersOnly(telephone)}>{'B: ' + formatTelephone(telephone)}</a></div>
+            <div style={{...styles.signature, ...styles.contact}}><a style={styles.link} href={'tel:+1' + numbersOnly(telephone)}>{'B: ' + formatTelephone(telephone)}</a></div>
             {
               mobile ?
-              <div style={{...styles.signature, ...styles.contact}}><a style={styles.link} href={'tel:+1' + this.numbersOnly(mobile)}>{'C: ' + formatTelephone(mobile)}</a></div> :
+              <div style={{...styles.signature, ...styles.contact}}><a style={styles.link} href={'tel:+1' + numbersOnly(mobile)}>{'C: ' + formatTelephone(mobile)}</a></div> :
               null
             }
             <div style={{...styles.signature, ...styles.contact}}><a style={styles.link} href={'mailto:' + email}>{email}</a></div>
