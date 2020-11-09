@@ -101,10 +101,10 @@ class VictorConceptum extends React.Component {
     const {address, addressLink, formatTelephone, formatUrl, url} = this;
     const {name, title, email, telephone} = this.props;
     return(
-      <div id="sig-container" style={{marginTop: '15px', paddingTop: '6px', borderTop: '1px dashed #ddd', width: 500}}>
+      <div id="sig-container" style={{marginTop: '15px', paddingTop: '6px', borderTop: '1px dashed #ddd'}}>
         <div style={{float: 'left', margin: '2px 5px 5px 0px', paddingRight: '5px', display: 'block'}} id="photoWrapper">
           <img src={logo} width={150} height={120} /> </div>
-        <div style={{marginTop: '0px', marginLeft: '74px', width: '300px'}} id="sigDetailsWrapper">
+        <div style={{marginTop: '0px', marginLeft: '74px', width: '400px'}} id="sigDetailsWrapper">
           <p style={{fontFamily: 'Helvetica, sans-serif', fontSize: '14px', lineHeight: '18px', color: '#333', marginTop: 0, marginLeft: 0, paddingLeft: 0}}>
             <strong style={{color: '#5232B7'}}>
               <span id="sigName">{name}</span>
