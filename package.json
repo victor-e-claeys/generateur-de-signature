@@ -1,6 +1,6 @@
 {
-  "name": "blancmarine",
-  "version": "0.1.0",
+  "name": "victor-conceptum-generateur-de-signature",
+  "version": "1.0",
   "private": true,
   "homepage": "https://victor-e-claeys.github.io/generateur-de-signature",
   "dependencies": {
