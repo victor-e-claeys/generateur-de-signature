@@ -34,7 +34,8 @@ const styles = {
   name: {
     fontFamily: "Georgia, serif",
     fontSize: "26px",
-    marginBottom: 4
+    marginBottom: 4,
+    letterSpacing: 0.5
   },
   title: {
     color: colors.grey,
@@ -76,7 +77,7 @@ class GroupeE5 extends React.Component {
 
   formatTelephone = phoneNumber => {
     const number = this.numbersOnly(phoneNumber);
-    return '(' + number.substr(0, 3) + ') ' + number.substr(3, 3) + '-' + number.substr(6, 4);
+    return number.substr(0, 3) + ' ' + number.substr(3, 3) + '-' + number.substr(6, 4);
   }
 
   numbersOnly = string => string.match(/\d+/g).join('')
