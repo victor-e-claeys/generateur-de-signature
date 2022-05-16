@@ -13,6 +13,7 @@ import instagramIcon from './assets/instagram.png';
 const border = process.env.PUBLIC_URL + '/ateliersjacob/assets/border.png';
 const logoAJ = process.env.PUBLIC_URL +  '/ateliersjacob/assets/ateliersjacob.png';
 const logoAM = process.env.PUBLIC_URL +  '/ateliersjacob/assets/logo-airmiles.jpg';
+const logoCuisirama = process.env.PUBLIC_URL +  '/ateliersjacob/assets/cuisirama.jpg';
 const logoT = process.env.PUBLIC_URL +  '/ateliersjacob/assets/tendances.png';
 const facebookIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/facebook.png';
 const instagramIcon = process.env.PUBLIC_URL +  '/ateliersjacob/assets/instagram.png';
@@ -118,8 +119,8 @@ class AteliersJacob extends React.Component {
   constructor(props){
     super(props);
     this.table = {
-      width: 500,
-      innerWidth: 490
+      width: 600,
+      innerWidth: 590
     }
     this.qs = queryString.parse(window.location.search);
   }
@@ -189,19 +190,38 @@ class AteliersJacob extends React.Component {
               <tr>
                 <td width="49%" style={styles.logo}>
                   <a href="https://www.ateliersjacob.com/" target="_blank"><img src={logoAJ} /></a><br/><br/>
-                  <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
+                  <a href="https://www.facebook.com/AteliersJacob/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;
                   <a href="https://www.instagram.com/ateliersjacob/" target="_blank"><img src={instagramIcon} /></a>
                 </td>
                 <td width="2%" align="center">
                   <img src={border} />
                 </td>
-                <td width="49%" style={styles.logo}>
-                  <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/>
-                  <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;&nbsp;
-                  <a href="https://www.instagram.com/tendances.concept/" target="_blank"><img src={instagramIcon} /></a>
-                </td>
+                {
+                  this.qs.partenaire == 'tc' ? 
+                  <td width="49%" style={styles.logo}>
+                    <a href="http://www.tendances-concept.com/" target="_blank"><img src={logoT} /></a><br/>
+                    <a href="https://www.facebook.com/tendancesconcept/" target="_blank"><img src={facebookIcon} /></a>&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/tendances.concept/" target="_blank"><img src={instagramIcon} /></a>
+                  </td>
+                    :
+                    null
+                }
+                {
+                  this.qs.partenaire == 'cuisirama' ? 
+                  <td width="49%" style={styles.logo}>
+                    <a href="http://www.cuisirama.qc.ca/fr/" target="_blank"><img src={logoCuisirama} width={100} /></a>
+                  </td>
+                    :
+                    null
+                }
               </tr>
             </Table>
+                {
+                  this.qs.partenaire == 'cuisirama' ? 
+                    <br/>
+                    :
+                    null
+                }
           </td>
         </tr>
         <tr>
@@ -223,19 +243,27 @@ class AteliersJacob extends React.Component {
                   :
                   <Table width={table.innerWidth}>
                     <tr>
-                      <td width={60}>
-                        <img src={logoAM} />
-                      </td>
+                      {
+                        this.qs.partenaire != 'cuisirama' ? 
+                          <td width={60}>
+                            <img src={logoAM} />
+                          </td>
+                          :
+                          null
+                      }
                       <td>
                         <Table width="100%">
                           <tr>
-                            <td style={styles.footer}>
-                              Montréal&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Longueuil&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Saint-Calixte&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Saint-Jérôme&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-                              Calgary
-                            </td>
+                            {
+                              this.qs.partenaire == 'cuisirama' ? 
+                                <td style={styles.footer}>
+                                  Montréal&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Longueuil&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Saint-Calixte&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Saint-Jérôme&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;L'Assomption&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Calgary
+                                </td>
+                                :
+                                <td style={styles.footer}>
+                                  Montréal&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Longueuil&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Saint-Calixte&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Saint-Jérôme&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Calgary
+                                </td>
+                            }
                           </tr>
                         </Table> 
                       </td>
