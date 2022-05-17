@@ -75,7 +75,7 @@ class Indispensable extends React.Component {
   componentWillMount(){
     const {setEditableFields} = this.props;
     if(setEditableFields){
-      setEditableFields(['language', 'name', 'title', 'email', 'extension', 'mobile'])
+      setEditableFields(['name', 'title', 'email', 'extension', 'mobile', 'language'])
     }
   }
 
