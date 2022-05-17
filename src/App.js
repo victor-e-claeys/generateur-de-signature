@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import {Button, ButtonGroup, Paper, Grid, Menu, MenuList, MenuItem, Snackbar, TextField} from '@material-ui/core';
+import {Button, ButtonGroup, Paper, Grid, Menu, MenuList, MenuItem, Snackbar, TextField, FormControl, InputLabel, Select} from '@material-ui/core';
 import * as Signatures from './signatures';
 import { saveAs } from 'file-saver';
 import copy from 'copy-to-clipboard';
@@ -18,11 +18,12 @@ class App extends React.Component {
       extension: '',
       title: 'Votre titre',
       message: null,
+      language: 'fr',
       editableFields: []
     };
   }
   fields = () => {
-    const {setValue} = this;
+    const {setValue, state: {language}} = this;
     return {
       name: 
         <Grid item xs={12} md={6}>
@@ -87,6 +88,19 @@ class App extends React.Component {
             label="Email"
             onChange={setValue('email')}
           />
+        </Grid>,
+      language:
+        <Grid item xs={12} md={6}>
+          <FormControl style={{width: "100%"}} variant="filled">
+            <InputLabel>{language === 'en' ? 'Language' : 'Langue'}</InputLabel>
+            <Select
+              value={language}
+              onChange={setValue('language')}
+            >
+              <MenuItem value="fr">Français</MenuItem>
+              <MenuItem value="en">English</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
     }
   }
@@ -141,12 +155,8 @@ class App extends React.Component {
         <Grid item xs={12} md={6}>
           <Paper style={{padding:10}}>
             <Grid container spacing={2}>
-              {Object.keys(this.fields()).map( key => {
-                if(this.state.editableFields.indexOf(key) >= 0){
-                  return this.fields()[key];
-                }else{
-                  return null;
-                }
+              {editableFields.map( field => {
+                return typeof field === 'string' ? this.fields()[field] : field;
               })}
               <Grid item xs={12}>
                 <ButtonGroup style={{marginRight: 10, marginTop: 10}} variant="contained" color="primary">

@@ -58,7 +58,7 @@ const styles = {
   }
 }
 
-class GroupeE5 extends React.Component {
+class Renard extends React.Component {
   constructor(props){
     super(props);
     this.rbq = '5787-2756-01';
@@ -109,4 +109,4 @@ class GroupeE5 extends React.Component {
   }
 }
   
-export default GroupeE5;
+export default Renard;
