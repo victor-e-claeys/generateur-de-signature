@@ -183,10 +183,10 @@ class App extends React.Component {
           <Paper style={{padding:10, marginTop: 20}}>
             <h3>Procédures</h3>
             <MenuList>
-              <MenuItem onClick={() => { this.copyHTML(signatureHtml); window.open('https://translate.google.com/translate?hl=en&sl=auto&tl=fr&u=https%3A%2F%2Fblog.gimm.io%2Fadd-email-signature-outlook-app-ios%2F') }}>
+              <MenuItem onClick={() => { this.copyHTML(signatureHtml); window.open('https://translate.google.com/translate?hl=en&sl=auto&tl=fr&u=https%3A%2F%2Fblog.gimm.io%2Fadd-email-signature-outlook-app-ios%2F'); }}>
                 Outlook sur iOS (Copier HTML)
               </MenuItem>
-              <MenuItem onClick={() => { this.copySignature(); window.open('https://support.microsoft.com/fr-fr/office/cr%C3%A9er-et-ajouter-une-signature-%C3%A0-des-messages-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#bk_seehow') }}>
+              <MenuItem onClick={() => { this.copySignature(); window.open('https://support.microsoft.com/fr-fr/office/cr%C3%A9er-et-ajouter-une-signature-%C3%A0-des-messages-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#bk_seehow'); }}>
                 Outlook sur PC (Copier texte)
               </MenuItem>
             </MenuList>
