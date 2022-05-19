@@ -106,7 +106,7 @@ class Indispensable extends React.Component {
               <tr>
                 <td style={styles.numberLabel}>Mtl.</td>
                 <td>
-                  <a style={{...styles.signature, ...styles.number}} href={'tel:+15248072134'}>{formatTelephone('5248072134',extension)}</a>
+                  <a style={{...styles.signature, ...styles.number}} href={'tel:+15148072134'}>{formatTelephone('5148072134',extension)}</a>
                 </td>
               </tr>
               <tr>
