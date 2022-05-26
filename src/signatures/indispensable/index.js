@@ -24,7 +24,7 @@ const styles = {
     color: colors.black,
     fontFamily: fonts.verdana,
     fontSize: 15,
-    textDecoration: 'none',
+    textDecoration: 'none !important',
     margin: 0,
     padding: 0
   },
@@ -38,6 +38,7 @@ const styles = {
   },
   name: {
     color: colors.primary,
+    display: 'inline-block',
     fontFamily: fonts.times,
     fontSize: 30,
     padding:1,
@@ -63,6 +64,7 @@ const styles = {
   },
   link:{
     color: colors.primary,
+    display: 'inline-block',
     fontSize: 12,
     fontWeight: 'bold'
   }
