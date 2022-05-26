@@ -44,10 +44,6 @@ const styles = {
     paddingBottom: 2,
     paddingTop: 8
   },
-  title: {
-    padding:1,
-    paddingBottom: 16
-  },
   numberLabel:{
     color: colors.primary,
     fontSize: 12,
@@ -77,7 +73,7 @@ class Indispensable extends React.Component {
   componentWillMount(){
     const {setEditableFields} = this.props;
     if(setEditableFields){
-      setEditableFields(['name', 'title', 'email', 'extension', 'mobile', 'language'])
+      setEditableFields(['name', 'title', 'extension', 'mobile', 'language'])
     }
   }
 
@@ -94,7 +90,7 @@ class Indispensable extends React.Component {
 
   render(){
     const {formatTelephone, numbersOnly} = this;
-    const {name, title, email, mobile, extension, language} = this.props;
+    const {name, title, mobile, extension, language} = this.props;
     return(
       <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
         <tr>
@@ -102,9 +98,9 @@ class Indispensable extends React.Component {
             <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={80} /></a>
           </td>
           <td style={styles.inner}>
-            <p style={{...styles.signature, ...styles.name}}><a href={"mailto:" + email} style={{...styles.signature, ...styles.name, padding:0}}>{name}</a></p>
-            <p style={{...styles.signature, ...styles.title}}>{title}</p>
-            <table style={{...styles.table, ...styles.signature}}>
+            <p style={{...styles.signature, ...styles.name}}>{name}</p>
+            <p style={{...styles.signature}}>{title}</p>
+            <table style={{...styles.table, ...styles.signature, paddingTop: 16}}>
               <tr>
                 <td style={styles.numberLabel}>Mtl.</td>
                 <td>
@@ -140,7 +136,7 @@ class Indispensable extends React.Component {
                 </td>
               </tr>
             </table>
-            <table style={{...styles.table, ...styles.signature, paddingTop: 12}}>
+            <table style={{...styles.table, ...styles.signature, paddingTop: 12, paddingBottom: 16}}>
               <tr>
                 <td style={{paddingRight: 50}}>
                   <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
@@ -172,7 +168,7 @@ class Indispensable extends React.Component {
                 </td>
               </tr>
             </table>
-            <p style={{...styles.signature, ...styles.small, paddingTop: 24, padding:1}}>{language === 'en' ? "CONFIDENTIALITY: This document is intended only for the use of the individual or entity to which it is addressed and contains information that is privileged and confidential. If the reader is not the intended recipient, or the employee or agent, responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by telephone and destroy the original message or any copy." : "CONFIDENTIALITÉ : Ces documents transmis par courriel sont de nature privilégiée et confidentielle, destinés à l'usage exclusif de la personne identifiée ci-dessus. S'ils vous sont parvenus par erreur, soyez par les présentes avisé(e) que tout usage, reproduction ou distribution est strictement interdit. Vous êtes donc prié(e) de nous en aviser immédiatement et de détruire toute copie informatisée ou autre."}</p>
+            <p style={{...styles.signature, ...styles.small, padding:1}}>{language === 'en' ? "CONFIDENTIALITY: This document is intended only for the use of the individual or entity to which it is addressed and contains information that is privileged and confidential. If the reader is not the intended recipient, or the employee or agent, responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by telephone and destroy the original message or any copy." : "CONFIDENTIALITÉ : Ces documents transmis par courriel sont de nature privilégiée et confidentielle, destinés à l'usage exclusif de la personne identifiée ci-dessus. S'ils vous sont parvenus par erreur, soyez par les présentes avisé(e) que tout usage, reproduction ou distribution est strictement interdit. Vous êtes donc prié(e) de nous en aviser immédiatement et de détruire toute copie informatisée ou autre."}</p>
           </td>
         </tr>
       </table>
