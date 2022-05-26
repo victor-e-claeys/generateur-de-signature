@@ -102,10 +102,10 @@ class Indispensable extends React.Component {
           <td style={styles.inner}>
             <p style={{...styles.signature, ...styles.name}}>{name}</p>
             <p style={{...styles.signature}}>{title}</p>
-            <table style={{...styles.table, ...styles.signature, paddingTop: 16}}>
+            <table style={{...styles.table, ...styles.signature}}>
               <tr>
-                <td style={styles.numberLabel}>Mtl.</td>
-                <td>
+                <td style={{...styles.numberLabel, paddingTop: 16}}>Mtl.</td>
+                <td style={{paddingTop: 16}}>
                   <span style={{...styles.signature, ...styles.number}} href={'tel:+15148072134'}>{formatTelephone('5148072134',extension)}</span>
                 </td>
               </tr>
