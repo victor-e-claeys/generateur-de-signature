@@ -94,86 +94,122 @@ class Indispensable extends React.Component {
     const {formatTelephone, numbersOnly} = this;
     const {name, title, mobile, extension, language} = this.props;
     return(
-      <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
-        <tr>
-          <td style={styles.logo}>
-            <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={80} /></a>
-          </td>
-          <td style={styles.inner}>
-            <p style={{...styles.signature, ...styles.name}}>{name}</p>
-            <p style={{...styles.signature}}>{title}</p>
-            <table style={{...styles.table, ...styles.signature}}>
-              <tr>
-                <td style={{...styles.numberLabel, paddingTop: 16}}>Mtl.</td>
-                <td style={{paddingTop: 16}}>
-                  <span style={{...styles.signature, ...styles.number}} href={'tel:+15148072134'}>{formatTelephone('5148072134',extension)}</span>
-                </td>
-              </tr>
-              <tr>
-                <td style={styles.numberLabel}>Tor.</td>
-                <td>
-                  <span style={{...styles.signature, ...styles.number}} href={'tel:+14168143690'}>{formatTelephone('4168143690',extension)}</span>
-                </td>
-              </tr>
-              {mobile && 
-              <tr>
-                <td style={styles.numberLabel}>Cell.</td>
-                <td>
-                  <span style={{...styles.signature, ...styles.number}} href={'tel:+1' + numbersOnly(mobile)}>{formatTelephone(mobile)}</span>
-                </td>
-              </tr>
-              }
-            </table>
-            <table width="100%" style={{...styles.table, ...styles.signature, ...styles.linksTable}}>
-              <tr>
-                <td style={{verticalAlign: 'top'}}>
-                  <a target="_blank" href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}>
-                    {language === "en" ? "indispensablerecruitment.com" : "lindispensable.com"}
-                  </a>
-                </td>
-                <td style={{textAlign: 'right', verticalAlign: 'top'}}>
-                  <a href="https://www.instagram.com/lindispensable_recrutement/" style={{...styles.signature}}><img height="12" src={instagramIcon} /></a>&nbsp;&nbsp;&nbsp;
-                  <a href="https://www.linkedin.com/company/l'indispensable/" style={{...styles.signature}}><img height="12" src={linkedinIcon} /></a>&nbsp;&nbsp;&nbsp;
-                  <a href="https://www.facebook.com/lindispensablerecrutement" style={{...styles.signature}}><img height="12" src={facebookIcon} /></a>
-                </td>
-              </tr>
-            </table>
-            <table style={{...styles.table, ...styles.signature, paddingTop: 12, paddingBottom: 16}}>
-              <tr>
-                <td style={{paddingRight: 50}}>
-                  <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
-                    {language === 'en' ? 
-                      <span href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
-                        1250, René-Lévesque blvd. W<br/>
-                        Suite 4345, Montreal (Qc) H3B 4W8
-                      </span> : 
-                      <span href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
-                        1250, boul. René-Lévesque O.<br/>
-                        Suite 4345, Montréal (Qc) H3B 4W8
-                      </span>
-                    }
-                  </p>
-                </td>
-                <td>
-                  <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
-                    {language === 'en' ? 
-                      <span href={this.addressLink('150 King Street West, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
-                        150, King Street West<br/>
-                        Suite 200, Toronto (On) M5H 1J9
-                      </span> : 
-                      <span href={this.addressLink('150, Rue King Ouest, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
-                        150, Rue King Ouest<br/>
-                        Suite 200, Toronto (On) M5H 1J9
-                      </span>
-                    }
-                  </p>
-                </td>
-              </tr>
-            </table>
-            <p style={{...styles.signature, ...styles.small, padding:1}}>{language === 'en' ? "CONFIDENTIALITY: This document is intended only for the use of the individual or entity to which it is addressed and contains information that is privileged and confidential. If the reader is not the intended recipient, or the employee or agent, responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by telephone and destroy the original message or any copy." : "CONFIDENTIALITÉ : Ces documents transmis par courriel sont de nature privilégiée et confidentielle, destinés à l'usage exclusif de la personne identifiée ci-dessus. S'ils vous sont parvenus par erreur, soyez par les présentes avisé(e) que tout usage, reproduction ou distribution est strictement interdit. Vous êtes donc prié(e) de nous en aviser immédiatement et de détruire toute copie informatisée ou autre."}</p>
-          </td>
-        </tr>
-      </table>
+      <div>
+        <style>{`
+          @media (max-width: 600px){
+            .signature{
+              padding: 10px !important;
+            }
+            .logo{
+              padding-right: 20px !important;
+            }
+            .numberLabel{
+              width: 30px !important;
+            }
+            .addressCell:first-child{
+              padding-right: 10px;
+            }
+          }
+          @media (max-width: 540px){
+            .addressCell{
+              display:block;
+            }
+            .addressCell:first-child{
+              padding-right: 0;
+              padding-bottom: 10px;
+            }
+          }
+          @media (max-width: 380px){
+            .linksCell{
+              display:block;
+              text-align: left !important;
+            }
+            .linksCell:first-child{
+              padding-bottom: 10px;
+            }
+          }
+        `}</style>
+        <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
+          <tr>
+            <td className="logo" style={styles.logo}>
+              <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={80} /></a>
+            </td>
+            <td style={styles.inner}>
+              <p style={{...styles.signature, ...styles.name}}>{name}</p>
+              <p style={{...styles.signature}}>{title}</p>
+              <table style={{...styles.table, ...styles.signature}}>
+                <tr>
+                  <td className="numberLabel" style={{...styles.numberLabel, paddingTop: 16}}>Mtl.</td>
+                  <td style={{paddingTop: 16}}>
+                    <span style={{...styles.signature, ...styles.number}} href={'tel:+15148072134'}>{formatTelephone('5148072134',extension)}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="numberLabel" style={styles.numberLabel}>Tor.</td>
+                  <td>
+                    <span style={{...styles.signature, ...styles.number}} href={'tel:+14168143690'}>{formatTelephone('4168143690',extension)}</span>
+                  </td>
+                </tr>
+                {mobile && 
+                <tr>
+                  <td className="numberLabel" style={styles.numberLabel}>Cell.</td>
+                  <td>
+                    <span style={{...styles.signature, ...styles.number}} href={'tel:+1' + numbersOnly(mobile)}>{formatTelephone(mobile)}</span>
+                  </td>
+                </tr>
+                }
+              </table>
+              <table width="100%" style={{...styles.table, ...styles.signature, ...styles.linksTable}}>
+                <tr>
+                  <td className="linksCell" style={{verticalAlign: 'top'}}>
+                    <a target="_blank" href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}>
+                      {language === "en" ? "indispensablerecruitment.com" : "lindispensable.com"}
+                    </a>
+                  </td>
+                  <td className="linksCell" style={{textAlign: 'right', verticalAlign: 'top'}}>
+                    <a href="https://www.instagram.com/lindispensable_recrutement/" style={{...styles.signature}}><img height="12" src={instagramIcon} /></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.linkedin.com/company/l'indispensable/" style={{...styles.signature}}><img height="12" src={linkedinIcon} /></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.facebook.com/lindispensablerecrutement" style={{...styles.signature}}><img height="12" src={facebookIcon} /></a>
+                  </td>
+                </tr>
+              </table>
+              <table style={{...styles.table, ...styles.signature, paddingTop: 12, paddingBottom: 16}}>
+                <tr>
+                  <td className="addressCell" style={{paddingRight: 50}}>
+                    <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
+                      {language === 'en' ? 
+                        <span href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
+                          1250, René-Lévesque blvd. W<br/>
+                          Suite 4345, Montreal (Qc) H3B 4W8
+                        </span> : 
+                        <span href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
+                          1250, boul. René-Lévesque O.<br/>
+                          Suite 4345, Montréal (Qc) H3B 4W8
+                        </span>
+                      }
+                    </p>
+                  </td>
+                  <td className="addressCell">
+                    <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
+                      {language === 'en' ? 
+                        <span href={this.addressLink('150 King Street West, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
+                          150, King Street West<br/>
+                          Suite 200, Toronto (On) M5H 1J9
+                        </span> : 
+                        <span href={this.addressLink('150, Rue King Ouest, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
+                          150, Rue King Ouest<br/>
+                          Suite 200, Toronto (On) M5H 1J9
+                        </span>
+                      }
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p style={{...styles.signature, ...styles.small, padding:1}}>{language === 'en' ? "CONFIDENTIALITY: This document is intended only for the use of the individual or entity to which it is addressed and contains information that is privileged and confidential. If the reader is not the intended recipient, or the employee or agent, responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by telephone and destroy the original message or any copy." : "CONFIDENTIALITÉ : Ces documents transmis par courriel sont de nature privilégiée et confidentielle, destinés à l'usage exclusif de la personne identifiée ci-dessus. S'ils vous sont parvenus par erreur, soyez par les présentes avisé(e) que tout usage, reproduction ou distribution est strictement interdit. Vous êtes donc prié(e) de nous en aviser immédiatement et de détruire toute copie informatisée ou autre."}</p>
+            </td>
+          </tr>
+        </table>
+      </div>
     );
   }
 }
