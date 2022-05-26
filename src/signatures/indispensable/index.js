@@ -140,29 +140,33 @@ class Indispensable extends React.Component {
             </table>
             <table style={{...styles.table, ...styles.signature}}>
               <tr>
-                <td style={{paddingRight: 50, lineHeight: .8}}>
-                  {language === 'en' ? 
-                    <a href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
-                      1250, René-Lévesque blvd. W<br/>
-                      Suite 4345, Montreal (Qc) H3B 4W8
-                    </a> : 
-                    <a href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
-                      1250, boul. René-Lévesque O.<br/>
-                      Suite 4345, Montréal (Qc) H3B 4W8
-                    </a>
-                  }
+                <td style={{paddingRight: 50}}>
+                  <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
+                    {language === 'en' ? 
+                      <a href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
+                        1250, René-Lévesque blvd. W<br/>
+                        Suite 4345, Montreal (Qc) H3B 4W8
+                      </a> : 
+                      <a href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
+                        1250, boul. René-Lévesque O.<br/>
+                        Suite 4345, Montréal (Qc) H3B 4W8
+                      </a>
+                    }
+                  </p>
                 </td>
-                <td style={{lineHeight: .8}}>
-                  {language === 'en' ? 
-                    <a href={this.addressLink('150 King Street West, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
-                      150, King Street West<br/>
-                      Suite 200, Toronto (On) M5H 1J9
-                    </a> : 
-                    <a href={this.addressLink('150, Rue King Ouest, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
-                      150, Rue King Ouest<br/>
-                      Suite 200, Toronto (On) M5H 1J9
-                    </a>
-                  }
+                <td>
+                  <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
+                    {language === 'en' ? 
+                      <a href={this.addressLink('150 King Street West, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
+                        150, King Street West<br/>
+                        Suite 200, Toronto (On) M5H 1J9
+                      </a> : 
+                      <a href={this.addressLink('150, Rue King Ouest, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
+                        150, Rue King Ouest<br/>
+                        Suite 200, Toronto (On) M5H 1J9
+                      </a>
+                    }
+                  </p>
                 </td>
               </tr>
             </table>
