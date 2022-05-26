@@ -24,7 +24,7 @@ const styles = {
     color: colors.black,
     fontFamily: fonts.verdana,
     fontSize: 15,
-    textDecoration: 'none !important',
+    textDecoration: 'none',
     margin: 0,
     padding: 0
   },
