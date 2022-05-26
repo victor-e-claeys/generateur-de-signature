@@ -24,7 +24,9 @@ const styles = {
     color: colors.black,
     fontFamily: fonts.verdana,
     fontSize: 15,
-    textDecoration: 'none'
+    textDecoration: 'none',
+    margin: 0,
+    padding: 0
   },
   table:{
     borderWidth: 0
@@ -38,13 +40,13 @@ const styles = {
     color: colors.primary,
     fontFamily: fonts.times,
     fontSize: 30,
-    marginBottom: 2,
-    marginTop: 8,
-    padding:1
+    padding:1,
+    paddingBottom: 2,
+    paddingTop: 8
   },
   title: {
-    marginBottom: 16,
-    padding:1
+    padding:1,
+    paddingBottom: 16
   },
   numberLabel:{
     color: colors.primary,
@@ -57,6 +59,7 @@ const styles = {
     borderBottomWidth: 1,
     borderBottomColor: colors.black,
     paddingTop: 16,
+    paddingBottom: 12,
     width: "100%"
   },
   small:{
@@ -99,7 +102,7 @@ class Indispensable extends React.Component {
             <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={80} /></a>
           </td>
           <td style={styles.inner}>
-            <p style={{...styles.signature, ...styles.name}}><a href={"mailto:" + email} style={{...styles.signature, ...styles.name}}>{name}</a></p>
+            <p style={{...styles.signature, ...styles.name}}><a href={"mailto:" + email} style={{...styles.signature, ...styles.name, padding:0}}>{name}</a></p>
             <p style={{...styles.signature, ...styles.title}}>{title}</p>
             <table style={{...styles.table, ...styles.signature}}>
               <tr>
@@ -130,7 +133,7 @@ class Indispensable extends React.Component {
                     {language === "en" ? "indispensablerecruitment.com" : "lindispensable.com"}
                   </a>
                 </td>
-                <td style={{paddingBottom: 12, textAlign: 'right', verticalAlign: 'top'}}>
+                <td style={{textAlign: 'right', verticalAlign: 'top'}}>
                   <a href="https://www.instagram.com/lindispensable_recrutement/" style={{...styles.signature}}><img height="12" src={instagramIcon} /></a>&nbsp;&nbsp;&nbsp;
                   <a href="https://www.linkedin.com/company/l'indispensable/" style={{...styles.signature}}><img height="12" src={linkedinIcon} /></a>&nbsp;&nbsp;&nbsp;
                   <a href="https://www.facebook.com/lindispensablerecrutement" style={{...styles.signature}}><img height="12" src={facebookIcon} /></a>
