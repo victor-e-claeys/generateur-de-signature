@@ -17,22 +17,26 @@ const fonts = {
 
 const styles = {
   container: {
-    textAlign: 'left',
-    padding: 40
+    textAlign: 'left'
   },
   signature:{
     color: colors.black,
     fontFamily: fonts.verdana,
-    fontSize: 15,
+    fontSize: 12,
     textDecoration: 'none',
     margin: 0,
     padding: 0
+  },
+  inner: {
+    paddingTop: 10,
+    width: 400
   },
   table:{
     borderWidth: 0
   },
   logo:{
-    paddingRight: 40,
+    paddingTop: 10,
+    paddingRight: 10,
     textAlign: 'center',
     verticalAlign:'top'
   },
@@ -40,16 +44,19 @@ const styles = {
     color: colors.primary,
     display: 'inline-block',
     fontFamily: fonts.times,
-    fontSize: 30,
+    fontSize: 24,
     padding:1,
     paddingBottom: 2,
     paddingTop: 8
   },
   numberLabel:{
     color: colors.primary,
-    fontSize: 12,
-    width: 50,
+    fontSize: 10,
+    width: 25,
     verticalAlign: 'middle'
+  },
+  number: {
+    fontSize: 11
   },
   linksTable:{
     borderBottomStyle: 'solid',
@@ -59,13 +66,16 @@ const styles = {
     paddingBottom: 12,
     width: "100%"
   },
+  addressCell:{
+    width: "50%"
+  },
   small:{
-    fontSize: 9
+    fontSize: 8
   },
   link:{
     color: colors.primary,
     display: 'inline-block',
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: 'bold'
   }
 }
@@ -94,45 +104,10 @@ class Indispensable extends React.Component {
     const {formatTelephone, numbersOnly} = this;
     const {name, title, mobile, extension, language} = this.props;
     return(
-      <div>
-        <style>{`
-          @media (max-width: 600px){
-            .signature{
-              padding: 10px !important;
-            }
-            .logo{
-              padding-right: 20px !important;
-            }
-            .numberLabel{
-              width: 30px !important;
-            }
-            .addressCell:first-child{
-              padding-right: 10px;
-            }
-          }
-          @media (max-width: 540px){
-            .addressCell{
-              display:block;
-            }
-            .addressCell:first-child{
-              padding-right: 0;
-              padding-bottom: 10px;
-            }
-          }
-          @media (max-width: 380px){
-            .linksCell{
-              display:block;
-              text-align: left !important;
-            }
-            .linksCell:first-child{
-              padding-bottom: 10px;
-            }
-          }
-        `}</style>
         <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
           <tr>
             <td className="logo" style={styles.logo}>
-              <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={80} /></a>
+              <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={60} height={60} /></a>
             </td>
             <td style={styles.inner}>
               <p style={{...styles.signature, ...styles.name}}>{name}</p>
@@ -140,20 +115,20 @@ class Indispensable extends React.Component {
               <table style={{...styles.table, ...styles.signature}}>
                 <tr>
                   <td className="numberLabel" style={{...styles.numberLabel, paddingTop: 16}}>Mtl.</td>
-                  <td style={{paddingTop: 16}}>
+                  <td width={150} style={{paddingTop: 16}}>
                     <span style={{...styles.signature, ...styles.number}} href={'tel:+15148072134'}>{formatTelephone('5148072134',extension)}</span>
                   </td>
                 </tr>
                 <tr>
                   <td className="numberLabel" style={styles.numberLabel}>Tor.</td>
-                  <td>
+                  <td width={150}>
                     <span style={{...styles.signature, ...styles.number}} href={'tel:+14168143690'}>{formatTelephone('4168143690',extension)}</span>
                   </td>
                 </tr>
                 {mobile && 
                 <tr>
                   <td className="numberLabel" style={styles.numberLabel}>Cell.</td>
-                  <td>
+                  <td width={150}>
                     <span style={{...styles.signature, ...styles.number}} href={'tel:+1' + numbersOnly(mobile)}>{formatTelephone(mobile)}</span>
                   </td>
                 </tr>
@@ -173,18 +148,18 @@ class Indispensable extends React.Component {
                   </td>
                 </tr>
               </table>
-              <table style={{...styles.table, ...styles.signature, paddingTop: 12, paddingBottom: 16}}>
+              <table width="100%" style={{...styles.table, ...styles.signature, paddingTop: 12, paddingBottom: 16}}>
                 <tr>
-                  <td className="addressCell" style={{paddingRight: 50}}>
+                  <td className="addressCell">
                     <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
                       {language === 'en' ? 
                         <span href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
-                          1250, René-Lévesque blvd. W<br/>
-                          Suite 4345, Montreal (Qc) H3B 4W8
+                          1250, René&#8209;Lévesque&nbsp;blvd.&nbsp;W<br/>
+                          Suite&nbsp;4345, Montreal&nbsp;(Qc) H3B&nbsp;4W8
                         </span> : 
                         <span href="https://goo.gl/maps/2jT2cx7Fha3s81sh6" style={{...styles.signature, ...styles.small}}>
-                          1250, boul. René-Lévesque O.<br/>
-                          Suite 4345, Montréal (Qc) H3B 4W8
+                          1250, boul.&nbsp;René&#8209;Lévesque&nbsp;O.<br/>
+                          Suite&nbsp;4345, Montréal&nbsp;(Qc) H3B&nbsp;4W8
                         </span>
                       }
                     </p>
@@ -193,23 +168,22 @@ class Indispensable extends React.Component {
                     <p style={{...styles.signature, ...styles.small, lineHeight: "9px", textDecoration: "none"}}>
                       {language === 'en' ? 
                         <span href={this.addressLink('150 King Street West, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
-                          150, King Street West<br/>
-                          Suite 200, Toronto (On) M5H 1J9
+                          150, King&nbsp;Street&nbsp;West<br/>
+                          Suite&nbsp;200, Toronto&nbsp;(On) M5H&nbsp;1J9
                         </span> : 
                         <span href={this.addressLink('150, Rue King Ouest, Suite 200, Toronto (On) M5H 1J9')} style={{...styles.signature, ...styles.small}}>
-                          150, Rue King Ouest<br/>
-                          Suite 200, Toronto (On) M5H 1J9
+                          150, Rue&nbsp;King&nbsp;Ouest<br/>
+                          Suite&nbsp;200, Toronto&nbsp;(On) M5H&nbsp;1J9
                         </span>
                       }
                     </p>
                   </td>
                 </tr>
               </table>
-              <p style={{...styles.signature, ...styles.small, padding:1}}>{language === 'en' ? "CONFIDENTIALITY: This document is intended only for the use of the individual or entity to which it is addressed and contains information that is privileged and confidential. If the reader is not the intended recipient, or the employee or agent, responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by telephone and destroy the original message or any copy." : "CONFIDENTIALITÉ : Ces documents transmis par courriel sont de nature privilégiée et confidentielle, destinés à l'usage exclusif de la personne identifiée ci-dessus. S'ils vous sont parvenus par erreur, soyez par les présentes avisé(e) que tout usage, reproduction ou distribution est strictement interdit. Vous êtes donc prié(e) de nous en aviser immédiatement et de détruire toute copie informatisée ou autre."}</p>
+              <p style={{...styles.signature, ...styles.small, lineHeight: "9px", padding:1}}>{language === 'en' ? "CONFIDENTIALITY: This document is intended only for the use of the individual or entity to which it is addressed and contains information that is privileged and confidential. If the reader is not the intended recipient, or the employee or agent, responsible for delivering the message to the intended recipient, you are hereby notified that any dissemination, distribution or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by telephone and destroy the original message or any copy." : "CONFIDENTIALITÉ : Ces documents transmis par courriel sont de nature privilégiée et confidentielle, destinés à l'usage exclusif de la personne identifiée ci-dessus. S'ils vous sont parvenus par erreur, soyez par les présentes avisé(e) que tout usage, reproduction ou distribution est strictement interdit. Vous êtes donc prié(e) de nous en aviser immédiatement et de détruire toute copie informatisée ou autre."}</p>
             </td>
           </tr>
         </table>
-      </div>
     );
   }
 }
