@@ -143,6 +143,9 @@ class App extends React.Component {
       signatureProps.setEditableFields = setEditableFields;
     }
     const template = window.location.hash.substr(1);
+    signatureProps.getImage = image => {
+      return  document.location.origin + document.location.pathname + template.toLowerCase() + '/' + image;
+    }
     if(!template || !Signatures[template]) return null;
     const signature = new React.createElement(Signatures[template], signatureProps);
     const wrappedSignature = <div id="signature">{signature}</div>;

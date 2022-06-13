@@ -1,10 +1,5 @@
 import React from 'react';
 
-const logo = process.env.PUBLIC_URL + '/arkidesign/arki3design-logo.png';
-const facebookIcon = process.env.PUBLIC_URL +  '/arkidesign/facebook.png';
-const instagramIcon = process.env.PUBLIC_URL +  '/arkidesign/instagram.png';
-const webIcon = process.env.PUBLIC_URL +  '/arkidesign/web.png';
-
 const colors = {
   primary: '#333',
   black: '#000000'
@@ -93,21 +88,21 @@ class ArkiDesign extends React.Component {
 
   render(){
     const {formatTelephone, numbersOnly} = this;
-    const {name, title, mobile, extension, language} = this.props;
+    const {name, title, mobile, extension, language, getImage} = this.props;
     return(
         <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
           <tr>
             <td className="logo" style={styles.logo}>
-              <a style={{...styles.signature, ...styles.link}} href="https://arki3.design"><img src={logo} width={250} /></a>
+              <a style={{...styles.signature, ...styles.link}} href="https://arki3.design"><img src={getImage('arki3design-logo.png')} width={250} /></a>
             </td>
             <td style={styles.inner}>
               <p style={{...styles.signature, ...styles.name}}>{name.toUpperCase()}</p>
               <p style={{...styles.signature, ...styles.title}}>{title}</p>
               <p style={{...styles.signature, ...styles.number}}>{mobile ? formatTelephone(mobile) : '514.992.6858'}</p>
               <p style={{...styles.signature, ...styles.links}}>
-                <a target="_blank" href="https://arki3.design" style={{...styles.signature}}><img height={iconHeight} src={webIcon} /></a>&nbsp;&nbsp;
-                <a target="_blank" href="https://www.facebook.com/ARKIdesigninc" style={{...styles.signature}}><img height={iconHeight} src={facebookIcon} /></a>&nbsp;&nbsp;
-                <a target="_blank" href="https://www.instagram.com/arkidesign.inc" style={{...styles.signature}}><img height={iconHeight} src={instagramIcon} /></a>&nbsp;&nbsp;
+                <a target="_blank" href="https://arki3.design" style={{...styles.signature}}><img height={iconHeight} src={getImage('web.png')} /></a>&nbsp;&nbsp;
+                <a target="_blank" href="https://www.facebook.com/ARKIdesigninc" style={{...styles.signature}}><img height={iconHeight} src={getImage('facebook.png')} /></a>&nbsp;&nbsp;
+                <a target="_blank" href="https://www.instagram.com/arkidesign.inc" style={{...styles.signature}}><img height={iconHeight} src={getImage('instagram.png')} /></a>&nbsp;&nbsp;
               </p>
             </td>
           </tr>
