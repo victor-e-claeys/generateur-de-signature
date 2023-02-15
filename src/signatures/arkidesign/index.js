@@ -9,7 +9,7 @@ const fonts = {
   helvetica: "Helvetica, sans-serif"
 }
 
-const iconHeight = 18;
+const iconHeight = 16;
 
 const styles = {
   container: {
@@ -24,7 +24,7 @@ const styles = {
     padding: 0
   },
   inner: {
-    paddingTop: 10,
+    paddingTop: 8,
     width: 400,
     verticalAlign:'top'
   },
@@ -32,8 +32,8 @@ const styles = {
     borderWidth: 0
   },
   logo:{
-    paddingTop: 10,
-    paddingRight: 16,
+    paddingTop: 8,
+    paddingRight: 8,
     textAlign: 'left',
     verticalAlign:'top'
   },
@@ -43,18 +43,18 @@ const styles = {
     borderTopStyle: 'solid',
     color: colors.primary,
     display: 'inline-block',
-    paddingTop: 5,
-    paddingBottom: 2,
-    fontSize: 24,
+    paddingTop: 4,
+    paddingBottom: 4,
+    fontSize: 20,
     fontWeight: 700,
   },
   title: {
     fontSize: 16,
     fontWeight: 200,
-    paddingBottom: 6,
+    paddingBottom: 16,
   },
   number: {
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: 300,
     paddingBottom: 4
   },
@@ -93,7 +93,7 @@ class ArkiDesign extends React.Component {
         <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
           <tr>
             <td className="logo" style={styles.logo}>
-              <a style={{...styles.signature, ...styles.link}} href="https://arki3.design"><img src={getImage('arki3design-logo.png')} width={250} /></a>
+              <a style={{...styles.signature, ...styles.link}} href="https://arki3.design"><img src={getImage('arki-design-logo-2022-v4.png')} width={120} /></a>
             </td>
             <td style={styles.inner}>
               <p style={{...styles.signature, ...styles.name}}>{name.toUpperCase()}</p>
