@@ -101,7 +101,7 @@ class App extends React.Component {
               <MenuItem value="en">English</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
+        </Grid>,
     }
   }
   setEditableFields = editableFields => {

@@ -1,4 +1,6 @@
 import React from 'react';
+import {FormControl, Grid} from '@material-ui/core';
+import ImageUploader from '../../components/ImageUploader';
 
 const logo = process.env.PUBLIC_URL + '/indispensable/logo.png';
 const facebookIcon = process.env.PUBLIC_URL +  '/indispensable/facebook.png';
@@ -82,10 +84,26 @@ const styles = {
 
 class Indispensable extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = { image: 0 };
+    this.setImage = this.setImage.bind(this);
+  }
+
+  setImage(image){
+    this.setState({image});
+  }
+
   componentWillMount(){
     const {setEditableFields} = this.props;
     if(setEditableFields){
-      setEditableFields(['name', 'title', 'extension', 'mobile', 'language'])
+      setEditableFields([
+        <Grid item xs={12}>
+          <FormControl style={{width: "100%"}} variant="filled">
+            <ImageUploader setImage={this.setImage} apiKey={ window.location.hostname === 'localhost' ? "562833a28ef11e6cb6ce1b31757541cc" : "449391b7f3b451794ff312e6a4cbdc0f" } />
+          </FormControl>
+        </Grid>
+      , 'name', 'title', 'extension', 'mobile', 'language'])
     }
   }
 
@@ -103,11 +121,13 @@ class Indispensable extends React.Component {
   render(){
     const {formatTelephone, numbersOnly} = this;
     const {name, title, mobile, extension, language} = this.props;
+    const {image} = this.state;
+    console.log(image);
     return(
         <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
           <tr>
             <td className="logo" style={styles.logo}>
-              <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={logo} width={60} height={60} /></a>
+              <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={image?.url || logo} width={60} height={60} /></a>
             </td>
             <td style={styles.inner}>
               <p style={{...styles.signature, ...styles.name}}>{name}</p>
