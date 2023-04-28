@@ -35,7 +35,7 @@ const ImageUploader = ({setImage, apiKey}) => {
     <div>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        {image?.url && <img src={image?.url} style={{maxWidth: 200}} />}
+        {image && <img src={image.url} style={{maxWidth: 200}} />}
         {isDragActive ? (
           <p>Déposer l'image ici ...</p>
         ) : (

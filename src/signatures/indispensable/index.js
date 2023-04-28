@@ -134,7 +134,10 @@ class Indispensable extends React.Component {
         <table className="signature" style={{...styles.table, ...styles.signature, ...styles.container}}>
           <tr>
             <td className="logo" style={styles.logo}>
-              <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={image?.url || logo} width={60} height={60} /></a>
+            <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={Object.assign({}, styles.signature, styles.link)}>
+            
+            {!image && <img src={logo} width={60} height={60} />}
+            </a>
             </td>
             <td style={styles.inner}>
               <table style={{...styles.table, ...styles.signature}}>
