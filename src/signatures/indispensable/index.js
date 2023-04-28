@@ -3,6 +3,7 @@ import {FormControl, Grid} from '@material-ui/core';
 import ImageUploader from '../../components/ImageUploader';
 
 const logo = process.env.PUBLIC_URL + '/indispensable/logo.png';
+const phraseLogo = process.env.PUBLIC_URL + '/indispensable/logo-10-ans.png';
 const facebookIcon = process.env.PUBLIC_URL +  '/indispensable/facebook.png';
 const instagramIcon = process.env.PUBLIC_URL +  '/indispensable/instagram.png';
 const linkedinIcon = process.env.PUBLIC_URL +  '/indispensable/linkedin.png';
@@ -48,8 +49,7 @@ const styles = {
     fontFamily: fonts.times,
     fontSize: 24,
     padding:1,
-    paddingBottom: 2,
-    paddingTop: 8
+    paddingBottom: 2
   },
   numberLabel:{
     color: colors.primary,
@@ -79,6 +79,12 @@ const styles = {
     display: 'inline-block',
     fontSize: 10,
     fontWeight: 'bold'
+  },
+  phraseLogoWrapper:{
+    paddingTop: 30
+  },
+  phraseLogo:{
+    width: 200
   }
 }
 
@@ -97,6 +103,7 @@ class Indispensable extends React.Component {
   componentWillMount(){
     const {setEditableFields} = this.props;
     if(setEditableFields){
+      // Comments here!
       setEditableFields([
         <Grid item xs={12}>
           <FormControl style={{width: "100%"}} variant="filled">
@@ -130,9 +137,16 @@ class Indispensable extends React.Component {
               <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={image?.url || logo} width={60} height={60} /></a>
             </td>
             <td style={styles.inner}>
-              <p style={{...styles.signature, ...styles.name}}>{name}</p>
-              <p style={{...styles.signature}}>{title}</p>
               <table style={{...styles.table, ...styles.signature}}>
+                <tr>
+                  <td colspan={2}>
+                    <p style={{...styles.signature, ...styles.name}}>{name}</p>
+                    <p style={{...styles.signature}}>{title}</p>
+                  </td>
+                  <td valign="top" rowSpan={mobile ? 4 : 3} style={styles.phraseLogoWrapper}>
+                    <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={phraseLogo} style={styles.phraseLogo} /></a>
+                  </td>
+                </tr>
                 <tr>
                   <td className="numberLabel" style={{...styles.numberLabel, paddingTop: 16}}>Mtl.</td>
                   <td width={150} style={{paddingTop: 16}}>
