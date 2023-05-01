@@ -19,8 +19,19 @@ class App extends React.Component {
       title: 'Votre titre',
       message: null,
       language: 'fr',
-      editableFields: []
+      editableFields: [],
+      template: false
     };
+  }
+  componentDidMount() {
+    this.setTemplate();
+    window.addEventListener("hashchange", this.setTemplate, false);
+  }
+  componentWillUnmount() {
+      window.removeEventListener("hashchange", this.setTemplate, false);
+  }
+  setTemplate = () => {
+    this.setState({template: window.location.hash.substr(1), editableFields: []});
   }
   fields = () => {
     const {setValue, state: {language}} = this;
@@ -138,15 +149,14 @@ class App extends React.Component {
   }
   render(){
     const {setEditableFields} = this;
-    let {message, editableFields, ...signatureProps} = this.state;
+    let {message, editableFields, template, ...signatureProps} = this.state;
+    if(!template || !Signatures[template]) return null;
     if(editableFields.length === 0){
       signatureProps.setEditableFields = setEditableFields;
     }
-    const template = window.location.hash.substr(1);
     signatureProps.getImage = image => {
       return  document.location.origin + document.location.pathname + template.toLowerCase() + '/' + image;
     }
-    if(!template || !Signatures[template]) return null;
     const signature = new React.createElement(Signatures[template], signatureProps);
     const wrappedSignature = <div id="signature">{signature}</div>;
     const signatureHtml = ReactDOMServer.renderToStaticMarkup(wrappedSignature);

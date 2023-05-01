@@ -38,3 +38,7 @@ Clients' signatures are each within their own directories within the signatures 
 To access a client's signature add the name of the signature component as a url hash and the project will load the appropriate signature. For example:
 
 https://victor-e-claeys.github.io/generateur-de-signature/#VictorConceptum
+
+or
+
+http://localhost:3000/#VictorConceptum
