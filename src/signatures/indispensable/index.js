@@ -144,7 +144,7 @@ class Indispensable extends React.Component {
                     <p style={{...styles.signature}}>{title}</p>
                   </td>
                   <td valign="top" rowSpan={mobile ? 4 : 3} style={styles.phraseLogoWrapper}>
-                    <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={phraseLogo} style={styles.phraseLogo} /></a>
+                    <a href={language === "en" ? "http://indispensablerecruitment.com/" : "http://lindispensable.com"} style={{...styles.signature, ...styles.link}}><img src={phraseLogo} width={200} height={70} /></a>
                   </td>
                 </tr>
                 <tr>
