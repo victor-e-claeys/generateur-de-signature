@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './assets/logo.png';
-import facebookIcon from './assets/facebook.png';
-import instagramIcon from './assets/instagram.png';
-import pinterestIcon from './assets/pinterest.png';
+import logo from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/logo.png';
+import facebookIcon from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/facebook.png';
+import instagramIcon from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/instagram.png';
+import pinterestIcon from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/pinterest.png';
 
 const colors = {
   primary: '#9e6d4f',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const logo = process.env.PUBLIC_URL + '/renard/assets/RenardRouge.png';
+const logo = process.env.PUBLIC_URL + 'https://victor-e-claeys.github.io/generateur-de-signature/renard/assets/RenardRouge.png';
 
 const colors = {
   primary: '#000000',

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const logo = process.env.PUBLIC_URL + '/capsulecreative/assets/photo_profil.png';
-const facebookIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/fb.png';
-const instagramIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/insta.png';
-const linkedinIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/linkedin.png';
-const twitterIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/twitter.png';
+const logo = process.env.PUBLIC_URL + 'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/photo_profil.png';
+const facebookIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/fb.png';
+const instagramIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/insta.png';
+const linkedinIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/linkedin.png';
+const twitterIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/twitter.png';
 
 const colors = {
   primary: '#c37415',

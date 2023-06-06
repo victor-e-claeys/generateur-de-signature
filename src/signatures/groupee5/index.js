@@ -1,6 +1,6 @@
 import React from 'react';
 
-const logo = process.env.PUBLIC_URL + '/groupee5/assets/LOGO_FINAL.png';
+const logo = process.env.PUBLIC_URL + 'https://victor-e-claeys.github.io/generateur-de-signature/groupee5/assets/LOGO_FINAL.png';
 
 const colors = {
   primary: '#000000',
