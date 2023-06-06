@@ -1,6 +1,6 @@
 import React from 'react';
 
-const logo = process.env.PUBLIC_URL + '/victorconceptum/logo.png';
+const logo = process.env.PUBLIC_URL + '/victorconceptum/LogoVC.png';
 const facebookIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/fb.png';
 const linkedinIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/linkedin.png';
 
@@ -106,18 +106,19 @@ class VictorConceptum extends React.Component {
           <img src={logo} width={150} height={120} /> </div>
         <div style={{marginTop: '0px', marginLeft: '74px', width: '400px'}} id="sigDetailsWrapper">
           <p style={{fontFamily: 'Helvetica, sans-serif', fontSize: '14px', lineHeight: '18px', color: '#333', marginTop: 0, marginLeft: 0, paddingLeft: 0}}>
-            <strong style={{color: '#5232B7'}}>
+            <strong style={{color: '#14212D'}}>
               <span id="sigName">{name}</span>
             </strong>
             <span id="sigTitle"> // {title}</span>
             <br />
-            <span style={{backgroundColor: '#8052BF', color: '#FFFFFF', fontSize: '12px', paddingTop: '1px', paddingBottom: '1px'}}>&nbsp;Apprendre. <strong>Entreprendre.</strong> Accomplir.&nbsp;</span><br />
+            <span style={{backgroundColor: '#EE3F1Fff', color: '#FFFFFF', fontSize: '12px', padding: '2px'}}> UN DESIGN PUISSANT EST RÉVOLUTIONNAIRE!</span>
+            <br/>
             <span>
-              <a href={'mailto:' + email} id="sigEmail" style={{color: '#906CF4'}}>{email}</a>
+              <a href={'mailto:' + email} id="sigEmail" style={{color: '#14212Dff'}}>{email}</a>
             </span>
             <br />
             <span>
-              <a href={url} id="sigWebsite" style={{color: '#906CF4'}} rel="nofollow">{formatUrl(url)}</a>
+              <a href={url} id="sigWebsite" style={{color: '#14212Dff'}} rel="nofollow">{formatUrl(url)}</a>
             </span>
           </p>
           <p style={{lineHeight: '14px', marginTop: 0, marginLeft: 0, paddingLeft: 0}}>
