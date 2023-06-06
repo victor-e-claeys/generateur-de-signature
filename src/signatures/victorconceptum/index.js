@@ -1,8 +1,8 @@
 import React from 'react';
 
-const logo = process.env.PUBLIC_URL + '/victorconceptum/LogoVC.png';
-const facebookIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/fb.png';
-const linkedinIcon = process.env.PUBLIC_URL +  '/capsulecreative/assets/linkedin.png';
+const logo = 'https://victor-e-claeys.github.io/generateur-de-signature/victorconceptum/LogoVC.png';
+const facebookIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/fb.png';
+const linkedinIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/capsulecreative/assets/linkedin.png';
 
 const colors = {
   primary: '#7263A8',
