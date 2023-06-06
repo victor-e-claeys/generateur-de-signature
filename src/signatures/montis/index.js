@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/pic.jpg';
-import facebookIcon from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/facebook.png';
-import instagramIcon from 'https://victor-e-claeys.github.io/generateur-de-signature/assets/instagram.png';
+const logo = 'https://victor-e-claeys.github.io/generateur-de-signature/assets/pic.jpg';
+const facebookIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/assets/facebook.png';
+const instagramIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/assets/instagram.png';
 
 class Montis extends React.Component {
   constructor(props){

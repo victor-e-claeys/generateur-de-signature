@@ -2,11 +2,11 @@ import React from 'react';
 import {FormControl, Grid} from '@material-ui/core';
 import ImageUploader from '../../components/ImageUploader';
 
-const logo = process.env.PUBLIC_URL + 'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/logo.png';
-const phraseLogo = process.env.PUBLIC_URL + 'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/logo-10-ans.png';
-const facebookIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/facebook.png';
-const instagramIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/instagram.png';
-const linkedinIcon = process.env.PUBLIC_URL +  'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/linkedin.png';
+const logo ='https://victor-e-claeys.github.io/generateur-de-signature/indispensable/logo.png';
+const phraseLogo = 'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/logo-10-ans.png';
+const facebookIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/facebook.png';
+const instagramIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/instagram.png';
+const linkedinIcon = 'https://victor-e-claeys.github.io/generateur-de-signature/indispensable/linkedin.png';
 
 const colors = {
   primary: '#5664ef',
