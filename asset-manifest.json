@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/generateur-de-signature/static/css/main.9678ced3.css",
-    "main.js": "/generateur-de-signature/static/js/main.6802b57a.js",
+    "main.css": "/generateur-de-signature/static/css/main.6c80f80c.css",
+    "main.js": "/generateur-de-signature/static/js/main.c334d251.js",
     "index.html": "/generateur-de-signature/index.html",
-    "main.9678ced3.css.map": "/generateur-de-signature/static/css/main.9678ced3.css.map",
-    "main.6802b57a.js.map": "/generateur-de-signature/static/js/main.6802b57a.js.map"
+    "main.6c80f80c.css.map": "/generateur-de-signature/static/css/main.6c80f80c.css.map",
+    "main.c334d251.js.map": "/generateur-de-signature/static/js/main.c334d251.js.map"
   },
   "entrypoints": [
-    "static/css/main.9678ced3.css",
-    "static/js/main.6802b57a.js"
+    "static/css/main.6c80f80c.css",
+    "static/js/main.c334d251.js"
   ]
 }

@@ -23,8 +23,6 @@ object-assign
   PERFORMANCE OF THIS SOFTWARE.
   ***************************************************************************** */
 
-/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-
 /**
  * A better abstraction over CSS.
  *
